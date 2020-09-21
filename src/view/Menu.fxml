@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="715.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.controllers.MenuController">
+   <children>
+      <Pane prefHeight="400.0" prefWidth="171.0" style="-fx-background-color: #a87434;">
+         <children>
+            <Button fx:id="btnProduto" alignment="BOTTOM_CENTER" contentDisplay="CENTER" layoutX="-17.0" layoutY="4.0" mnemonicParsing="false" onAction="#btnProduto_Action" prefHeight="25.0" prefWidth="183.0" style="-fx-background-color: #a87434;" text="Produtos" textAlignment="CENTER" textFill="WHITE" />
+            <Button fx:id="btnSair" alignment="BOTTOM_CENTER" contentDisplay="CENTER" layoutX="-17.0" layoutY="361.0" mnemonicParsing="false" onAction="#btnSair_Action" prefHeight="25.0" prefWidth="183.0" style="-fx-background-color: #a87434;" text="Sair" textFill="WHITE" />
+         </children>
+      </Pane>
+      <Label layoutX="172.0" layoutY="41.0" text="Descrição: " />
+      <Label layoutX="172.0" layoutY="80.0" text="Valor Unitário:" />
+      <Label layoutX="175.0" layoutY="121.0" text="Qtd. Produto: " />
+      <TextField fx:id="txtDescricao" layoutX="260.0" layoutY="37.0" />
+      <TextField fx:id="txtVlrUni" layoutX="260.0" layoutY="76.0" />
+      <TextField fx:id="txtQtd" layoutX="260.0" layoutY="117.0" />
+      <Button fx:id="btnGravar" layoutX="175.0" layoutY="157.0" mnemonicParsing="false" onAction="#btnGravar_Action" text="Gravar" />
+      <ScrollPane layoutX="175.0" layoutY="225.0">
+         <content>
+            <TextArea fx:id="txtAreaListProduto" prefHeight="125.0" prefWidth="520.0" />
+         </content>
+      </ScrollPane>
+      <Label layoutX="423.0" layoutY="42.0" text="Cód. Prod: " />
+      <TextField fx:id="txtCodProd" layoutX="488.0" layoutY="38.0" prefHeight="25.0" prefWidth="119.0" />
+      <Button fx:id="btnBuscar" layoutX="490.0" layoutY="68.0" mnemonicParsing="false" onAction="#btnBuscar_Action" prefHeight="25.0" prefWidth="111.0" text="Buscar" />
+      <Label fx:id="lblCodProduto" layoutX="175.0" layoutY="14.0" />
+      <Button fx:id="btnAtualizar" layoutX="175.0" layoutY="188.0" mnemonicParsing="false" onAction="#btnAtualizar_Action" prefHeight="25.0" prefWidth="80.0" text="Atualizar" />
+      <Button fx:id="btnExcluir" layoutX="260.0" layoutY="188.0" mnemonicParsing="false" onAction="#btnExcluir_Action" text="Excluir" />
+      <RadioButton fx:id="optProva" layoutX="172.0" layoutY="14.0" mnemonicParsing="false" selected="true" text="Prova">
+         <toggleGroup>
+            <ToggleGroup fx:id="gpOpt" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="optTrabalho" layoutX="271.0" layoutY="14.0" mnemonicParsing="false" text="Trabalho" toggleGroup="$gpOpt" />
+   </children>
+</AnchorPane>
