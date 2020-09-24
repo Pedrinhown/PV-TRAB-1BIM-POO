@@ -69,41 +69,49 @@ public class MenuController {
     	Produto produto = null;
     	boolean trabalho = false;
     	
-    	try 
-    	{
-		if (lblCodProduto.getText().equals(""))
-		{
-		throw new Exception("Informe o código do produto que deseja excluir");
-		}
-		else
-		{
-		produto = pegaDadosCod();
-		}
-		
-		if (optTrabalho.isSelected() == true)
-		{
-			trabalho = true;
-		}
-		else if(optProva.isSelected() == true)
-		{
-			trabalho = false;
-		}
-		
-   		if(new ProdutoController().Excluir(produto.getCod_produto(), trabalho) == 1) {
-   			listarProdutos(trabalho);
-   			LimparCampos();
-   		}		
-    }
+    	Alert ConfirmaExcluir = new Alert(AlertType.CONFIRMATION);
     	
-    	catch (Exception e)
-    	{
-    		Alert alert = new Alert(AlertType.WARNING);
+    	ConfirmaExcluir.setTitle("Sair");
+    	ConfirmaExcluir.setHeaderText("Deseja realmente excluir o registro selecionado");  	
+    	
+    	Optional<ButtonType> result = ConfirmaExcluir.showAndWait();
+    	 if (result.isPresent() && result.get() == ButtonType.OK) {
+    	    	try 
+    	    	{
+    			if (lblCodProduto.getText().equals(""))
+    			{
+    			throw new Exception("Informe o código do produto que deseja excluir");
+    			}
+    			else
+    			{
+    			produto = pegaDadosCod();
+    			}
+    			
+    			if (optTrabalho.isSelected() == true)
+    			{
+    				trabalho = true;
+    			}
+    			else if(optProva.isSelected() == true)
+    			{
+    				trabalho = false;
+    			}
+    			
+    	   		if(new ProdutoController().Excluir(produto.getCod_produto(), trabalho) == 1) {
+    	   			listarProdutos(trabalho);
+    	   			LimparCampos();
+    	   		}		
+    	    }
+    	    	
+    	    	catch (Exception e)
+    	    	{
+    	    		Alert alert = new Alert(AlertType.WARNING);
 
-            alert.setTitle("Atenção");
-            alert.setHeaderText(e.getMessage());
-            
-            alert.showAndWait();
-		}  	
+    	            alert.setTitle("Atenção");
+    	            alert.setHeaderText(e.getMessage());
+    	            
+    	            alert.showAndWait();
+    			}  
+    	 }      		
     }
 
     @FXML

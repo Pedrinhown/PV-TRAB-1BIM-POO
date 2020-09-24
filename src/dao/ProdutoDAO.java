@@ -138,7 +138,9 @@ public class ProdutoDAO extends ConexaoMySql{
 			PreparedStatement pst = connection.prepareStatement(SQL_DELETE_PRODUTO);){
 			pst.setInt(1, cod);
 			
-			pst.executeUpdate();			
+			if(pst.executeUpdate() == 1) {
+				qtd = 1;
+			}
 		}
 				
 		catch (SQLException e) {
